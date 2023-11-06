@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Arkitektur - Architecture HTML Template</title>
+    <title>Bejahouse - Imobiliária</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -32,6 +32,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
@@ -58,9 +59,25 @@
                 <a href="{{url('/')}}" class="nav-item nav-link {{ (request()->is('/') or request()->is('home')) ? 'active' : ''}}">Principal</a>
                 <a href="{{ url('imoveis') }}" class="nav-item nav-link {{ request()->is('imoveis') ? 'active' : ''}}">Imóveis</a>                
                 <a href="{{ url('contactos') }}" class="nav-item nav-link {{ request()->is('contactos') ? 'active' : ''}}">Contactos</a>
-            </div>
+                
+                @if(Auth::user())
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">{{ Auth::user()->name }}</a>
+                        <div class="dropdown-menu border-0 m-0 show" data-bs-popper="none">
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="dropdown-item">Sair</a>                                
+                            </form>
+                        </div>
+                    </div>
+                @endif
+            </div>            
         </div>
     </nav>
+    <!-- Settings Dropdown -->
+    
+    
     <!-- Navbar End -->
 
     <main id="main">
@@ -77,34 +94,15 @@
                     <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>961 074 726</p>
                     <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>bejahouseimobiliaria@gmail.com</p>
                     <div class="d-flex pt-2">
-                        <!--a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-twitter"></i></a-->
                         <a class="btn btn-square btn-outline-body me-1" href="https://www.facebook.com/BEJAHOUSE/"><i class="fab fa-facebook-f"></i></a>
-                        <!--a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-youtube"></i></a-->
-                        <!--a class="btn btn-square btn-outline-body me-0" href=""><i class="fab fa-linkedin-in"></i></a-->
                     </div>
                 </div>
-                <!--div class="col-lg-3 col-md-6">
-                    <h3 class="text-light mb-4">Services</h3>
-                    <a class="btn btn-link" href="">Architecture</a>
-                    <a class="btn btn-link" href="">3D Animation</a>
-                    <a class="btn btn-link" href="">House Planning</a>
-                    <a class="btn btn-link" href="">Interior Design</a>
-                    <a class="btn btn-link" href="">Construction</a>
-                </div-->
                 <div class="col-lg-6 col-md-6">
                     <h3 class="text-light mb-4">Menu</h3>
                     <a class="btn btn-link" href="{{ url('sobre') }}">Sobre</a>
                     <a class="btn btn-link" href="{{ url('contactos') }}">Contactos</a>
                     <a class="btn btn-link" href="{{ url('imoveis') }}">Imóveis</a>
                 </div>
-                <!--div class="col-lg-3 col-md-6">
-                    <h3 class="text-light mb-4">Newsletter</h3>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div-->
             </div>
         </div>
         <div class="container-fluid copyright">
@@ -113,10 +111,6 @@
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a href="/">Beja House Imobiliária</a>, 2023. Todos os direitos reservados.
                     </div>
-                    <!--div class="col-md-6 text-center text-md-end">
-                        Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                        <br> Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                    </div-->
                 </div>
             </div>
         </div>

@@ -8,8 +8,8 @@
         <h1 class="display-1 text-white animated slideInDown">Imóveis</h1>
         <nav aria-label="breadcrumb animated slideInDown">
             <ol class="breadcrumb text-uppercase mb-0">
-                <li class="breadcrumb-item"><a class="text-white" href="/">Principal</a></li>
-                <li class="breadcrumb-item text-primary" aria-current="page">Imóveis</li>
+                <li class="breadcrumb-item"><a class="text-white" href="{{ url('/') }}">Principal</a></li>
+                <li class="breadcrumb-item text-primary"><a class="text-white" href="{{ url('imoveis') }}">Imóveis</a></li>
                 <li class="breadcrumb-item text-primary active" aria-current="page">Adicionar novo</li>
             </ol>
         </nav>

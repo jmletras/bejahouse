@@ -8,7 +8,7 @@
         <h1 class="display-1 text-white animated slideInDown">Imóveis</h1>
         <nav aria-label="breadcrumb animated slideInDown">
             <ol class="breadcrumb text-uppercase mb-0">
-                <li class="breadcrumb-item"><a class="text-white" href="/">Principal</a></li>
+                <li class="breadcrumb-item"><a class="text-white" href="{{ url('/') }}">Principal</a></li>
                 <li class="breadcrumb-item text-primary active" aria-current="page">Imóveis</li>
             </ol>
         </nav>
@@ -23,7 +23,9 @@
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h4 class="section-title">Lista de Imóveis</h4>
             <!--h1 class="display-5 mb-4">We Are Creative Architecture Team For Your Dream Home</h1-->
-            <a class="btn btn-success btn-sm btn-block p-2 mb-3" role="button" href="{{ url('imoveis/create') }}"><i class="fas fa-plus">  </i> &nbsp; Adicionar novo imóvel</a>
+            @if(Auth::user())
+                <a class="btn btn-success btn-sm btn-block p-2 mb-3" role="button" href="{{ url('imoveis/create') }}"><i class="fas fa-plus">  </i> &nbsp; Adicionar novo imóvel</a>
+            @endif
         </div>
         <div class="row">
             <div class="col-md-3">

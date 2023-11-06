@@ -31,13 +31,6 @@ Route::get('/', function () {
     return view('index', compact('imoveis', 'localidades'));
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});/*->middleware(['auth', 'verified'])->name('dashboard');*/
-
-Route::get('/sobre', function () {
-    return view('sobre');
-});
 Route::get('/contactos', function () {
     return view('contactos');
 });
@@ -46,14 +39,14 @@ Route::get('/contactos', function () {
 /*Route::resource('imoveis', ImovelController::class);*/
 
 Route::get('/imoveis', [ImovelController::class, 'index']);
-Route::get('/imoveis/create', [ImovelController::class, 'create'])->name('imoveis.create');
-Route::post('/imoveis', [ImovelController::class, 'store'])->name('imoveis.store');
+Route::get('/imoveis/create', [ImovelController::class, 'create'])->name('imoveis.create')->middleware('auth');
+Route::post('/imoveis', [ImovelController::class, 'store'])->name('imoveis.store')->middleware('auth');
 Route::get('/imoveis/{imovel}', [ImovelController::class, 'show'])->name('imoveis.show');
 
-Route::get('/imoveis/{imovel}/edit', [ImovelController::class, 'edit'])->name('imoveis.edit');
-Route::put('/imoveis/{imovel}', [ImovelController::class, 'update'])->name('imoveis.update');
+Route::get('/imoveis/{imovel}/edit', [ImovelController::class, 'edit'])->name('imoveis.edit')->middleware('auth');
+Route::put('/imoveis/{imovel}', [ImovelController::class, 'update'])->name('imoveis.update')->middleware('auth');
 
-Route::delete('/imoveis', [ImovelController::class, 'destroy'])->name('imoveis.destroy');
+Route::delete('/imoveis', [ImovelController::class, 'destroy'])->name('imoveis.destroy')->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

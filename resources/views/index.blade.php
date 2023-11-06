@@ -16,11 +16,13 @@
                 <div class="owl-carousel-inner">
                     <div class="container">
                         <div class="row justify-content-start">
-                            <div class="col-12 col-lg-12">
-                                <h1 class="display-1 text-white animated slideInDown">Encontre aqui o imóvel dos seus sonhos</h1>
+                        <h1 class="display-1 text-white animated slideInDown">Encontre aqui o imóvel dos seus sonhos</h1>
+                            <div class="col-md-6">
+                                
                                 <!--p class="fs-5 fw-medium text-white mb-4 pb-3">..</p-->
+                                <!-- <div class="col-md-6 "> -->
                                 <form action="{{url('/imoveis')}}" method="GET" class="form">
-                                    <div class="row col-md-6 ">
+                                    <!-- <div class="col-md-6 "> -->
                                         <div class="col-md-12">
                                             <label class="control-label fs-5 fw-medium text-white mb-1 pb-1" for="codigo_postal">Localidade</label>
                                             <select style="color: rgb(0,0,0, 0.6); font-size: 1.2em; border:rgb(255,255,255, 0.9);background-color: rgb(255,255,255, 0.5);"  name="localidade" class="form-control form-control-sm">
@@ -32,12 +34,21 @@
                                         </div>
                                         <div class='col-md-12 form-group'>
                                             <button type="submit" class='btn-submit'>Procurar</button>
-                                            <br/>
-                                            <a style="text-decoration:underline;" href="{{ url('imoveis') }}">Ver todos os imóveis</a>
+                                        
+
+                                            
+
                                         </div>
-                                    </div>                                
-                                </form>                                
+                                    <!-- </div> -->
+                                                              
+                                </form>  
+                                <!-- </div>  -->
+                                                             
                             </div>
+                            <div class="col-md-6" style="text-align:center;"> 
+                                <a style="padding:2em;background-color: #d79b0f;" class="btn btn-secondary" href="{{ url('imoveis') }}"><i class="fas fa-home fa-lg"></i> <br/> <span style="margin-top:4em;font-size: 16px;">Ver todos os imóveis</span></a> 
+                            </div>  
+                            
                         </div>
                     </div>
                 </div>

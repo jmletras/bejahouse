@@ -8,7 +8,7 @@
         <h1 class="display-1 text-white animated slideInDown">Imóveis</h1>
         <nav aria-label="breadcrumb animated slideInDown">
             <ol class="breadcrumb text-uppercase mb-0">
-                <li class="breadcrumb-item"><a class="text-white" href="/">Principal</a></li>
+                <li class="breadcrumb-item"><a class="text-white" href="{{ url('/') }}">Principal</a></li>
                 <li class="breadcrumb-item text-primary" aria-current="page"><a class="text-white" href="{{ url('imoveis') }}">Imóveis</a></li>
                 <li class="breadcrumb-item text-primary" aria-current="page">{{$title}}</li>
             </ol>
@@ -43,7 +43,10 @@
                                     <li class="d-flex justify-content-between"><h4>Ano de construção</h4><span>{{$imovel->tipo_negocio?:"-"}}</span></li>
                                     <li class="d-flex justify-content-between"><h4>Categoria energética</h4><span>{{$imovel->categoria_energetica?:"-"}}F</span></li>
                                 </ul>
-                                <a href="{{ route('imoveis.edit', $imovel) }}" class="btn btn-primary py-3 px-5 mt-3">Editar imóvel</a>
+
+                                @if(Auth::user())
+                                    <a href="{{ route('imoveis.edit', $imovel) }}" class="btn btn-primary py-3 px-5 mt-3">Editar imóvel</a>
+                                @endif
                             </div>                            
                         </div>    
                     </div>

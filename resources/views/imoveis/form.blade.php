@@ -100,7 +100,7 @@
 		<select name="concelho" class="form-control form-control-sm">
 			<option value="">Escolha o distrito</option>
 			@foreach ($concelhos as $concelho)
-				<!--option @if((isset($imovel) AND $imovel->concelho == $concelho->id) OR (old('concelho') == $concelho->id)) selected @endif value="{{ $concelho->id }}">{{ $concelho->nome_concelho }}</option-->
+				<option @if((isset($imovel) AND $imovel->concelho == $concelho->id) OR (old('concelho') == $concelho->id)) selected @endif value="{{ $concelho->id }}">{{ $concelho->nome_concelho }}</option>
 			@endforeach		
 		</select>
 		@if ($errors->has('concelho')) <p class="text-danger help-block">{{ $errors->first('concelho') }}</p> @endif
@@ -119,7 +119,7 @@
 		<select name="localidade" class="form-control form-control-sm">
 			<option value="">Escolha o concelho</option>
 			@foreach ($localidades as $localidade)
-				<!--option @if((isset($imovel) AND $imovel->localidade == $localidade->id) OR (old('localidade') == $localidade->id)) selected @endif value="{{ $localidade->id }}">{{ $localidade->nome_localidade }}</option-->
+				<option @if((isset($imovel) AND $imovel->localidade == $localidade->id) OR (old('localidade') == $localidade->id)) selected @endif value="{{ $localidade->id }}">{{ $localidade->nome_localidade }}</option>
 			@endforeach
 		</select>
 		@if ($errors->has('localidade')) <p class="text-danger help-block">{{ $errors->first('localidade') }}</p> @endif	
