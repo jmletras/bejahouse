@@ -57,14 +57,15 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{url('/')}}" class="nav-item nav-link {{ (request()->is('/') or request()->is('home')) ? 'active' : ''}}">Principal</a>
-                <a href="{{ url('imoveis') }}" class="nav-item nav-link {{ request()->is('imoveis') ? 'active' : ''}}">Imóveis</a>                
+                <a href="{{ url('imoveis') }}" class="nav-item nav-link {{ request()->is('imoveis') ? 'active' : ''}}">Imóveis</a>
+                <a href="{{ url('sobre') }}" class="nav-item nav-link {{ request()->is('sobre') ? 'active' : ''}}">Sobre</a>                
                 <a href="{{ url('contactos') }}" class="nav-item nav-link {{ request()->is('contactos') ? 'active' : ''}}">Contactos</a>
                 
                 @if(Auth::user())
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">{{ Auth::user()->name }}</a>
                         <div class="dropdown-menu border-0 m-0 show" data-bs-popper="none">
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="{{ url('imoveis/create') }}" class="dropdown-item">Novo imóvel</a>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="dropdown-item">Sair</a>                                
@@ -85,7 +86,7 @@
 	</main><!-- End #main -->
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-body footer mt-5 pt-5 px-0 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark text-body footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-6 col-md-6">

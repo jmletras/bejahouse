@@ -23,22 +23,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-
     $localidades = Localidade::select('nome_localidade', 'id')->has('imoveis')->orderBy('nome_localidade', 'ASC')->get();
-    
-
     $imoveis = Imovel::select('*')->orderBy('id', 'desc')->take(6)->get();
+
     return view('index', compact('imoveis', 'localidades'));
-});
+})->name('home')->middleware('auth');;
+
+Route::get('/sobre', function () {
+    return view('sobre');
+})->middleware('auth');
 
 Route::get('/contactos', function () {
     return view('contactos');
-});
+})->middleware('auth');
 
 
-/*Route::resource('imoveis', ImovelController::class);*/
-
-Route::get('/imoveis', [ImovelController::class, 'index']);
+Route::get('/imoveis', [ImovelController::class, 'index'])->middleware('auth');
 Route::get('/imoveis/create', [ImovelController::class, 'create'])->name('imoveis.create')->middleware('auth');
 Route::post('/imoveis', [ImovelController::class, 'store'])->name('imoveis.store')->middleware('auth');
 Route::get('/imoveis/{imovel}', [ImovelController::class, 'show'])->name('imoveis.show');
@@ -56,8 +56,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+//Route::redirect('register', '/');
+
+Route::get('register', function () { return redirect()-> route('home'); });
+
+
 Route::get('/distrito/{distrito}/concelho', [DistritoController::class, 'obterConcelhos']);
 Route::get('concelho/{concelho}/localidade', [ConcelhoController::class, 'obterLocalidades']);
-Route::get('localidade/{localidade}/codigo_postal', [LocalidadeController::class, 'obterCodigosPostais']);
 
 Route::post('/enviar_contacto', [ImovelController::class, 'enviar_contacto']);

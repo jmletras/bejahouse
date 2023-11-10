@@ -88,6 +88,16 @@ h5, h6, .h5, .h6, .fw-normal {
     border-color: var(--primary);
 }
 
+.btn-index-see_all {
+    padding:2em !important;
+    background-color: #d79b0f;
+    color: #FFFFFF;
+}
+
+.btn-index-see_all:hover {
+    background-color: #6b5307;
+    color: #FFFFFF;
+}
 
 /*** Navbar ***/
 .navbar .dropdown-toggle::after {

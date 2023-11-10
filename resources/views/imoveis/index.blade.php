@@ -24,7 +24,7 @@
             <h4 class="section-title">Lista de Imóveis</h4>
             <!--h1 class="display-5 mb-4">We Are Creative Architecture Team For Your Dream Home</h1-->
             @if(Auth::user())
-                <a class="btn btn-success btn-sm btn-block p-2 mb-3" role="button" href="{{ url('imoveis/create') }}"><i class="fas fa-plus">  </i> &nbsp; Adicionar novo imóvel</a>
+                <a class="btn btn-success btn-sm btn-block p-2 my-3" role="button" href="{{ url('imoveis/create') }}"><i class="fas fa-plus">  </i> &nbsp; Adicionar novo imóvel</a>
             @endif
         </div>
         <div class="row">
@@ -60,9 +60,9 @@
             <div class="col-md-9">
                 <div class="col-md-12 mb-3">
                     @if(isset($_GET["localidade"]))
-                        <span style="font-size: 12px;">Filtrando por: Localidade - <b>{{$query_localidade->nome_localidade}}</b>.</span>
+                        <span style="font-size: 13px;">Filtrando por: Localidade - <b>{{$query_localidade->nome_localidade}}</b>.</span>
                     @endif
-                    <span style="font-size: 12px;"> Encontrados {{$imoveis->count()}} imóvei(s).</span>
+                    <p style="font-size: 13px;"> Encontrados {{$imoveis->count()}} imóvei(s).</p>
                 </div>
                 
                 <div style="display: flex;" class="row g-0 team-items">
