@@ -571,13 +571,13 @@ h5, h6, .h5, .h6, .fw-normal {
     width: auto;
     margin-top: -22px;
     padding: 16px;
-    color: white;
+    color: #5c5c5c;
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-    background-color:rgba(255, 255, 255, .3);
+    background-color:rgba(255, 255, 255, .9);
   }
   
   /* Position the "next button" to the right */
@@ -618,14 +618,14 @@ h5, h6, .h5, .h6, .fw-normal {
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbb;
+    background-color: #8a8a8a;
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
   }
   
   .dot-active, .dot:hover {
-    background-color: #717171;
+    background-color: #595959;
   }
   
   /* Fading animation */
