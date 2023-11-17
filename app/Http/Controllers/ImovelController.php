@@ -136,7 +136,7 @@ class ImovelController extends Controller
 		if ($request->hasFile('fotos'))
 		{
 			ini_set('memory_limit','1024M'); 
-			$destination = public_path('fotos_imoveis/');
+			$destination = 'fotos_imoveis/';
 			
 			if($files=$request->file('fotos')){
 				foreach($files as $file){
