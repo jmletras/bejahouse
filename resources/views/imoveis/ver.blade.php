@@ -57,7 +57,8 @@
 
                         @foreach($imovel->fotos as $foto) 
                         <div class="mySlides slideshow_fade">                            
-                            <img src="{{ asset('fotos_imoveis/')}}/{{$foto->filename}}" style="width:100%">
+                            <img class="slide_image" src="{{ asset('fotos_imoveis/')}}/{{$foto->filename}}">
+                            
                         </div>
                         @endforeach
                         @if(count($imovel->fotos) > 1)                        
