@@ -91,7 +91,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 col-md-6">
                     <h3 class="text-light mb-4">Contactos</h3>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>R. de Mértola 52, 7800-475 Beja</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>Estrada da Circunvalação, 28, 7940-195 Cuba</p>
                     <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>961 074 726</p>
                     <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>bejahouseimobiliaria@gmail.com</p>
                     <div class="d-flex pt-2">

@@ -196,7 +196,9 @@
 <div class="row">
 	<div class="col-md-12">
 		<label class="control-label" for="descricao">Descrição do imóvel:</label>
-		<input type="text" name="descricao" class="form-control" value="@if(isset($imovel)){{$imovel->descricao}}@endif"/>
+		<textarea rows="5" cols="40" name="descricao" class="form-control" >
+			@if(isset($imovel)) {{$imovel->descricao}} @endif
+		</textarea>
 		@if ($errors->has('descricao')) <p class="text-danger help-block">{{ $errors->first('descricao') }}</p> @endif	
 	</div>
 </div>
