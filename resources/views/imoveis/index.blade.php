@@ -85,7 +85,13 @@
                                     <div class="bg-light text-center p-2">
                                         <h3 style="font-size: 22px; margin-bottom: 20px;" class="mt-2">{{$imovel->natureza}} - {{$imovel->tipologia}}</h3> 
                                         <span style="font-size:15px;">{{$imovel->ref_localidade->nome_localidade}}, {{$imovel->ref_concelho->nome_concelho}}</span>
-                                        <p class="text-primary">{{$imovel->preco}} <i class="fas fa-euro-sign"></i></p>
+                                        <p class="text-primary">
+                                            @if($imovel->preco > 0)
+                                                {{$imovel->preco}} <i class='fas fa-euro-sign'></i>
+                                            @else
+                                                Sob consulta
+                                            @endif
+                                        </p>
                                     </div>
                                 </div>
                             </a>

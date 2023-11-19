@@ -27,7 +27,14 @@
             <div class="row g-5">
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <h1 class="display-6 mb-2">{{$title}}</h1>
-                    <p class="text-primary" style="font-size: 1.6rem;" ><b>{{$imovel->preco}} </b><i class="fas fa-euro-sign"></i></p>
+                    <p class="text-primary" style="font-size: 1.6rem;" ><b>
+                        @if($imovel->preco > 0)
+                            {{$imovel->preco}} <i class='fas fa-euro-sign'></i>
+                        @else
+                            Sob consulta
+                        @endif
+                        </b>
+                    </p>
                     <p class="pt-3 pb-5">{{$imovel->descricao}}</p>
                     <div class="row g-4">
                         <div class="col-12">

@@ -182,7 +182,7 @@
 <div class="row">
 	<div class="col-md-6">
 		<label class="control-label" for="preco">Preço:</label>
-		<input type="text" name="preco" class="form-control" value="@if(isset($imovel)){{$imovel->preco}}@endif"/>
+		<input type="number" name="preco" class="form-control" value="@if(isset($imovel)){{$imovel->preco}}@endif"/>
 		@if ($errors->has('preco')) <p class="text-danger help-block">{{ $errors->first('preco') }}</p> @endif
 	</div>
 	<div class="col-md-6">
